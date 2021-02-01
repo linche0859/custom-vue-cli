@@ -1,9 +1,11 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {},
+  context: path.resolve(__dirname, 'src'),
   output: {
     filename: '[name].bundle.js', // 根據 entry 的 key name 決定 name
     path: path.resolve(__dirname, 'dist'),
@@ -76,5 +78,13 @@ module.exports = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Custom Vue Cli',
+      // 輸出的檔案名稱
+      filename: 'index.html',
+      template: '../public/index.html',
+    }),
+  ],
 };

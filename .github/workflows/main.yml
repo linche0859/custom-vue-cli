@@ -19,7 +19,7 @@ jobs:
   build:
     env:
       MY_SECRET   : ${{secrets.commit_secret}}
-      USER_NAME   : linche
+      USER_NAME   : che.lin
       USER_EMAIL  : aa10327tw@gmail.com
       GITHUB_REPOSITORY: custom-vue-cli
       PUBLISH_DIR : ./dist
